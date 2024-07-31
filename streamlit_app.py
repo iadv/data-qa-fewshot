@@ -88,9 +88,86 @@ st.markdown("")
 
 # Step 1: Define example queries
 examples = [
-    {"input": "What is the amount of wastage for tea blends?", "query": """SELECT "Copy of Comp MatlGrp Desc" AS ComponentMaterialGroup, SUM("Var2Prf Amt") AS TotalWastage FROM Wastage_Data WHERE "Copy of Comp MatlGrp Desc" = 'Tea Blends' GROUP BY "Copy of Comp MatlGrp Desc";"""},
-    {"input": "What's the reasons for plastic bags wastage on L1?", "query": "SELECT Level2Reason, COUNT(*) AS ReasonCount \nFROM Maintenance_Data \nWHERE Line = 'L01 - C24' \nGROUP BY Level2Reason;"},
-    {"input": "What was the top contributor to wastage this month?", "query": """SELECT "Copy of Comp MatlGrp Desc" AS ComponentMaterialGroup, SUM("Var2Prf Amt") AS TotalWastage \nFROM Wastage_Data \nGROUP BY "Copy of Comp MatlGrp Desc";"""},
+    # Wastage and Maintenance Data Queries
+    {
+        "input": "What is the amount of wastage for tea blends?",
+        "query": """SELECT "Copy of Comp MatlGrp Desc" AS ComponentMaterialGroup, SUM("Var2Prf Amt") AS TotalWastage 
+                    FROM Wastage_Data 
+                    WHERE "Copy of Comp MatlGrp Desc" = 'Tea Blends' 
+                    GROUP BY "Copy of Comp MatlGrp Desc";"""
+    },
+    {
+        "input": "What's the reasons for plastic bags wastage on L1?",
+        "query": """SELECT Level2Reason, COUNT(*) AS ReasonCount 
+                    FROM Maintenance_Data 
+                    WHERE Line = 'L01 - C24' 
+                    GROUP BY Level2Reason;"""
+    },
+    {
+        "input": "What was the top contributor to wastage this month?",
+        "query": """SELECT "Copy of Comp MatlGrp Desc" AS ComponentMaterialGroup, SUM("Var2Prf Amt") AS TotalWastage 
+                    FROM Wastage_Data 
+                    GROUP BY "Copy of Comp MatlGrp Desc"
+                    ORDER BY TotalWastage DESC
+                    LIMIT 1;"""
+    },
+    # General Inquiries about File Contents
+    {
+        "input": "What's in these files?",
+        "query": """SELECT 'Overview' AS Summary,
+                           COUNT(*) AS TotalRecords,
+                           GROUP_CONCAT(DISTINCT COLUMN_NAME) AS Columns
+                    FROM INFORMATION_SCHEMA.COLUMNS
+                    WHERE TABLE_NAME = 'YourTableName';"""
+    },
+    {
+        "input": "Can you tell me what's in the dataset?",
+        "query": """SELECT 'Dataset Overview' AS Summary,
+                           COUNT(DISTINCT <PrimaryKeyColumn>) AS UniqueEntries,
+                           SUM(<NumericColumn>) AS TotalValue
+                    FROM YourTableName;"""
+    },
+    {
+        "input": "What kind of data is in these tables?",
+        "query": """SELECT 'Table Overview' AS Summary,
+                           COUNT(DISTINCT <IdentifierColumn>) AS UniqueItems,
+                           AVG(<NumericColumn>) AS AverageValue,
+                           COUNT(DISTINCT <CategoryColumn>) AS UniqueCategories
+                    FROM YourTableName;"""
+    },
+    {
+        "input": "What do these files contain?",
+        "query": """SELECT 'File Content Overview' AS Summary,
+                           COUNT(DISTINCT <EntityColumn>) AS UniqueEntities,
+                           MAX(<NumericColumn>) AS MaxValue,
+                           MIN(<NumericColumn>) AS MinValue
+                    FROM YourTableName;"""
+    },
+    # Specific Datasets Queries
+    {
+        "input": "What's in the Customer_Data file?",
+        "query": """SELECT 'Customer Data Overview' AS Overview,
+                           COUNT(DISTINCT CustomerID) AS UniqueCustomers,
+                           SUM(PurchaseAmount) AS TotalPurchases,
+                           COUNT(DISTINCT ProductID) AS ProductsPurchased
+                    FROM Customer_Data;"""
+    },
+    {
+        "input": "What's in the Sales_Data file?",
+        "query": """SELECT 'Sales Data Overview' AS Overview,
+                           COUNT(DISTINCT OrderID) AS UniqueOrders,
+                           SUM(SalesAmount) AS TotalSalesRevenue,
+                           COUNT(DISTINCT Product) AS UniqueProductsSold
+                    FROM Sales_Data;"""
+    },
+    {
+        "input": "What's in the Stock_Data file?",
+        "query": """SELECT 'Stock Data Overview' AS Overview,
+                           COUNT(DISTINCT StockSymbol) AS UniqueStocks,
+                           AVG(Price) AS AverageStockPrice,
+                           SUM(Volume) AS TotalTradingVolume
+                    FROM Stock_Data;"""
+    }
 ]
 
 # Step 2: Create a FewShotPromptTemplate
@@ -99,21 +176,28 @@ example_prompt = PromptTemplate.from_template("User input: {input}\nSQL query: {
 few_shot_prompt = FewShotPromptTemplate(
     examples=examples,
     example_prompt=example_prompt,
-    # prefix="You are a SQL expert. Given a user input, generate the appropriate SQL query.\nHere are some examples:",
-    prefix="""You are an assitant for process engineers. You are an agent designed to interact with a SQL database or use your tools to return the current date or a test response. 
+    prefix="""You are a versatile assistant designed to interact with SQL databases across multiple domains, including but not limited to wastage and maintenance data. You can also analyze customer data, sales, and stock market information. Your task is to interpret the context based on column names and generate appropriate SQL queries.
+
     Given an input question about data, create a syntactically correct SQLite query to run, then look at the results of the query and return the answer. 
     You can order the results by a relevant column to return the most interesting examples in the database. 
-    Never query for all the columns from a specific table, only ask for the relevant columns given the question.,
+    Never query for all the columns from a specific table; only ask for the relevant columns given the question.
+
     You have access to tools for interacting with the database as well as returning the current date or a test response.
     Only use the given tools. Only use the information returned by the tools to construct your final answer.
-    You MUST double check your query before executing it. If you get an error while executing a query, rewrite the query and try again.
+    You MUST double-check your query before executing it. If you get an error while executing a query, rewrite the query and try again.
 
-    DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP etc.) to the database.
+    DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP, etc.) to the database.
 
-    When a user asks about a material or item, they are referring to a unique entity from the column 'Copy of Comp MatlGrp Desc' column in the 'Wastage_Data' table with only these values possible: ['Tea Blends', 'ZWIP Default', 'Thermal Transfer Lbl', 'Corrugated & Display', 'Web', 'Misc Pkg Materials', 'ASSO BRAND DELTA MFG', '0', 'Cartons', 'Tea Tags', 'PS Labels', 'Poly Laminations', 'ZFIN DEFAULT', 'Plastic Bags']  
-    When asked about 'downtime', 'reasons' or 'maintenance' query the 'Maintenance_Data' table.
+    **For Wastage and Maintenance Data:**
+    When a user asks about a material or item, they are referring to a unique entity from the 'Copy of Comp MatlGrp Desc' column in the 'Wastage_Data' table with only these values possible: ['Tea Blends', 'ZWIP Default', 'Thermal Transfer Lbl', 'Corrugated & Display', 'Web', 'Misc Pkg Materials', 'ASSO BRAND DELTA MFG', '0', 'Cartons', 'Tea Tags', 'PS Labels', 'Poly Laminations', 'ZFIN DEFAULT', 'Plastic Bags'].  
+    When asked about 'downtime', 'reasons', or 'maintenance', query the 'Maintenance_Data' table.
     'Reasons' for downtime and maintenance are provided as Level 2 Reasons in the Maintenance_Data table in the column 'Level2Reason'.
-    When asked about Lines or, for example, "L1", the lines you can query are only: ['L01 - C24', 'L02 - C24', 'L03 - C24', 'L03A - C24E', 'L04 - C21', 'L05  - C21', 'L19 - T2 Prima', 'L21 - Twinkle', 'L22 - Twinkle Rental', 'L23 - Twinkle 2', 'L24 - Twinkle 3', 'L35 - Fuso Combo 1', 'L36 - Fuso Combo 2']
+    When asked about Lines or, for example, "L1", the lines you can query are only: ['L01 - C24', 'L02 - C24', 'L03 - C24', 'L03A - C24E', 'L04 - C21', 'L05  - C21', 'L19 - T2 Prima', 'L21 - Twinkle', 'L22 - Twinkle Rental', 'L23 - Twinkle 2', 'L24 - Twinkle 3', 'L35 - Fuso Combo 1', 'L36 - Fuso Combo 2'].
+
+    **For General Data Analysis:**
+    - Customer Data: Look for columns such as 'CustomerID', 'Name', 'PurchaseHistory', 'ContactInfo', etc., and aggregate or filter based on common customer queries like total purchases or frequent purchases.
+    - Sales Data: Identify columns such as 'SalesAmount', 'Date', 'Product', 'Region', etc., and perform operations to find trends, top products, or sales over time.
+    - Stock Market Data: Focus on columns like 'StockSymbol', 'Price', 'Volume', 'Date', etc., to analyze stock performance, average prices, or volume trends.
 
     If the question does not seem related to the database, the current date or time, or a test_tool, just return "I don't know" as the answer. \nHere are some examples:""",
     suffix="User input: {input}\nSQL query: {agent_scratchpad}\n",
@@ -181,6 +265,40 @@ if user_query:
 
 
 
+#copy of prompts: 07/31
+# Step 1: Define example queries
+#examples = [
+ #   {"input": "What is the amount of wastage for tea blends?", "query": """SELECT "Copy of Comp MatlGrp Desc" AS ComponentMaterialGroup, SUM("Var2Prf Amt") AS TotalWastage FROM Wastage_Data WHERE "Copy of Comp MatlGrp Desc" = 'Tea Blends' GROUP BY "Copy of Comp MatlGrp Desc";"""},
+  #  {"input": "What's the reasons for plastic bags wastage on L1?", "query": "SELECT Level2Reason, COUNT(*) AS ReasonCount \nFROM Maintenance_Data \nWHERE Line = 'L01 - C24' \nGROUP BY Level2Reason;"},
+   # {"input": "What was the top contributor to wastage this month?", "query": """SELECT "Copy of Comp MatlGrp Desc" AS ComponentMaterialGroup, SUM("Var2Prf Amt") AS TotalWastage \nFROM Wastage_Data \nGROUP BY "Copy of Comp MatlGrp Desc";"""},
+#]
+
+# Step 2: Create a FewShotPromptTemplate
+#example_prompt = PromptTemplate.from_template("User input: {input}\nSQL query: {query}")
+
+#few_shot_prompt = FewShotPromptTemplate(
+ #   examples=examples,
+  #  example_prompt=example_prompt,
+   # # prefix="You are a SQL expert. Given a user input, generate the appropriate SQL query.\nHere are some examples:",
+ #   prefix="""You are an assitant for process engineers. You are an agent designed to interact with a SQL database or use your tools to return the current date or a test response. 
+ #   Given an input question about data, create a syntactically correct SQLite query to run, then look at the results of the query and return the answer. 
+ #   You can order the results by a relevant column to return the most interesting examples in the database. 
+ #   Never query for all the columns from a specific table, only ask for the relevant columns given the question.,
+ #   You have access to tools for interacting with the database as well as returning the current date or a test response.
+ #   Only use the given tools. Only use the information returned by the tools to construct your final answer.
+ #   You MUST double check your query before executing it. If you get an error while executing a query, rewrite the query and try again.
+
+  #  DO NOT make any DML statements (INSERT, UPDATE, DELETE, DROP etc.) to the database.
+
+ #   When a user asks about a material or item, they are referring to a unique entity from the column 'Copy of Comp MatlGrp Desc' column in the 'Wastage_Data' table with only these values possible: ['Tea Blends', 'ZWIP Default', 'Thermal Transfer Lbl', 'Corrugated & Display', 'Web', 'Misc Pkg Materials', 'ASSO BRAND DELTA MFG', '0', 'Cartons', 'Tea Tags', 'PS Labels', 'Poly Laminations', 'ZFIN DEFAULT', 'Plastic Bags']  
+ #   When asked about 'downtime', 'reasons' or 'maintenance' query the 'Maintenance_Data' table.
+ #   'Reasons' for downtime and maintenance are provided as Level 2 Reasons in the Maintenance_Data table in the column 'Level2Reason'.
+ #   When asked about Lines or, for example, "L1", the lines you can query are only: ['L01 - C24', 'L02 - C24', 'L03 - C24', 'L03A - C24E', 'L04 - C21', 'L05  - C21', 'L19 - T2 Prima', 'L21 - Twinkle', 'L22 - Twinkle Rental', 'L23 - Twinkle 2', 'L24 - Twinkle 3', 'L35 - Fuso Combo 1', 'L36 - Fuso Combo 2']
+
+ #   If the question does not seem related to the database, the current date or time, or a test_tool, just return "I don't know" as the answer. \nHere are some examples:""",
+ #   suffix="User input: {input}\nSQL query: {agent_scratchpad}\n",
+ #   input_variables=["input", "agent_scratchpad"]
+)
 
 
 
