@@ -16,6 +16,14 @@ os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
+# Ensure the database is empty at the start of the session
+db_path = 'Data.db'
+if os.path.exists(db_path):
+    os.remove(db_path)
+
+# Connect to the SQLite database (this will create a new, empty database)
+conn = sqlite3.connect(db_path)
+
 
 # ------------------- Create Sidebar Chat ----------------------
 
