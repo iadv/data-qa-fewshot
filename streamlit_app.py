@@ -72,7 +72,6 @@ cursor.execute(f"""
 # Step 2: Drop the old table
 cursor.execute(f"DROP TABLE {old_table_name}")
 
-cursor = conn.cursor()
 old_table_name = 'Maintenance_Data'
 new_table_name = 'Data_B'
 
