@@ -33,8 +33,9 @@ with st.sidebar:
     st.write('''
 
     1. 📄 Upload the relevant files in CSV format (e.g., maintenance data, customer data, sales data, etc.)
-    2. Wait for the files to upload.
-    3. Ask Questions! 📊
+    2. Example test case: upload wastage data on the left and maintenance data on the right
+    3. Wait for the files to upload.
+    4. Ask Questions! 📊
 
     ''')
     st.markdown("")
@@ -50,10 +51,10 @@ st.markdown("")
 col1, col2 = st.columns(2)
 
 with col1:
-    uploaded_file_A = st.file_uploader("**Upload File (e.g., wastage data) (.csv)**", type=("csv"))
+    uploaded_file_A = st.file_uploader("**Upload File (e.g., wastage data, customer data, sales data, finance data) (.csv)**", type=("csv"))
 
 with col2:
-    uploaded_file_B = st.file_uploader("**Upload File (e.g., maintenance data) (.csv)**", type=("csv"))
+    uploaded_file_B = st.file_uploader("**Upload File (e.g., maintenance data, customer data, sales data, finance data) (.csv)**", type=("csv"))
     
     # Connect to the SQLite database
     conn = sqlite3.connect('Data.db')
