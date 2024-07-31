@@ -50,22 +50,29 @@ st.markdown("")
 col1, col2 = st.columns(2)
 
 with col1:
-    uploaded_file_w = st.file_uploader("**Upload File (e.g., wastage data) (.csv)**", type=("csv"))
+    uploaded_file_A = st.file_uploader("**Upload File (e.g., wastage data) (.csv)**", type=("csv"))
 
 with col2:
-    uploaded_file_m = st.file_uploader("**Upload File (e.g., maintenance data) (.csv)**", type=("csv"))
-
-if uploaded_file_w and uploaded_file_m:
-    # Read the uploaded files
-    dfe = pd.read_csv(uploaded_file_w)
-    dfr = pd.read_csv(uploaded_file_m)
+    uploaded_file_B = st.file_uploader("**Upload File (e.g., maintenance data) (.csv)**", type=("csv"))
     
     # Connect to the SQLite database
     conn = sqlite3.connect('Data.db')
     
+if uploaded_file_A:
+    # Read the uploaded file
+    dfe = pd.read_csv(uploaded_file_A)
+    
+    
     # Save dataframes to SQL tables
-    dfe.to_sql('Wastage_Data', conn, index=False, if_exists='replace')
-    dfr.to_sql('Maintenance_Data', conn, index=False, if_exists='replace')
+    dfe.to_sql('Data_A', conn, index=False, if_exists='replace')
+    st.success("File A successfully uploaded and data ready for analysis.")
+
+if uploaded_file_B:
+    # Read the uploaded file
+    dfe = pd.read_csv(uploaded_file_B)
+
+    dfe.to_sql('Data_B', conn, index=False, if_exists='replace')
+    st.success("File B successfully uploaded and data ready for analysis.")
     
     # Commit and close the connection
     conn.commit()
