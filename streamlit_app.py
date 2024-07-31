@@ -69,15 +69,21 @@ cursor.execute(f"""
     CREATE TABLE {new_table_name} AS
     SELECT * FROM {old_table_name}
 """)
+# Step 2: Drop the old table
+cursor.execute(f"DROP TABLE {old_table_name}")
 
+cursor = conn.cursor()
 old_table_name = 'Maintenance_Data'
 new_table_name = 'Data_B'
 
-# Step 2: Create a new table with the desired name
+# Step 3: Create a new table with the desired name
 cursor.execute(f"""
     CREATE TABLE {new_table_name} AS
     SELECT * FROM {old_table_name}
 """)
+# Step 4: Drop the old table
+cursor.execute(f"DROP TABLE {old_table_name}")
+
 # End of renaming the table   
 if uploaded_file_A:
     # Read the uploaded file
