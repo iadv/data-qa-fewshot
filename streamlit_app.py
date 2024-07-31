@@ -57,6 +57,19 @@ with col2:
     
     # Connect to the SQLite database
     conn = sqlite3.connect('Data.db')
+
+    cursor = conn.cursor()
+
+    # Define the old and new table names
+    old_table_name = 'Wastage_Data'
+    new_table_name = 'Data_A'
+    
+    # Rename the table
+    try:
+        cursor.execute(f"ALTER TABLE {old_table_name} RENAME TO {new_table_name}")
+        print(f"Table renamed from {old_table_name} to {new_table_name}")
+    except sqlite3.OperationalError as e:
+        print(f"Error: {e}")
     
     # Rename the table
     #cursor = conn.cursor()
