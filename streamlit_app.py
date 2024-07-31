@@ -298,7 +298,7 @@ if user_query:
  #   If the question does not seem related to the database, the current date or time, or a test_tool, just return "I don't know" as the answer. \nHere are some examples:""",
  #   suffix="User input: {input}\nSQL query: {agent_scratchpad}\n",
  #   input_variables=["input", "agent_scratchpad"]
-)
+#)
 
 
 
