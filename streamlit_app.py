@@ -55,9 +55,30 @@ with col1:
 with col2:
     uploaded_file_B = st.file_uploader("**Upload File (e.g., maintenance data) (.csv)**", type=("csv"))
     
-    # Connect to the SQLite database
-    conn = sqlite3.connect('Data.db')
-    
+# Connect to the SQLite database
+conn = sqlite3.connect('Data.db')
+
+# Rename the table
+cursor = conn.cursor()
+
+old_table_name = 'Wastage_Data'
+new_table_name = 'Data_A'
+
+# Step 1: Create a new table with the desired name
+cursor.execute(f"""
+    CREATE TABLE {new_table_name} AS
+    SELECT * FROM {old_table_name}
+""")
+
+old_table_name = 'Maintenance_Data'
+new_table_name = 'Data_B'
+
+# Step 2: Create a new table with the desired name
+cursor.execute(f"""
+    CREATE TABLE {new_table_name} AS
+    SELECT * FROM {old_table_name}
+""")
+# End of renaming the table   
 if uploaded_file_A:
     # Read the uploaded file
     dfe = pd.read_csv(uploaded_file_A)
