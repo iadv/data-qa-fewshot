@@ -57,13 +57,18 @@ with st.sidebar:
 
     1. 📄 Upload one or two relevant files in CSV format (e.g. maintenance data, machine log, quality log, customer data, etc.)
     2. Example test case: upload wastage data on the left and maintenance data on the right.
+    ''')
+    st.markdown("")
+    st.markdown("")
+    uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
+    uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
+    st.markdown("")
+    st.markdown("")
+    st.write('''
     3. Wait for the files to upload.
     4. Ask Questions! 📊
 
     ''')
-    st.markdown("")
-    uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
-    uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
     st.markdown("")
     st.markdown("")
 
