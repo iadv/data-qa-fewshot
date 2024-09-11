@@ -30,9 +30,21 @@ conn = sqlite3.connect(db_path)
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    st.markdown.App {
-                background-color: #1a2c32; /* Light gray background */
-            }
+    page_bg_img = f"""
+    <style>
+    [data-testid="stAppViewContainer"] > .main {{
+    background-image: url("https://i.postimg.cc/4xgNnkfX/Untitled-design.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    }}
+    [data-testid="stHeader"] {{
+    background: rgba(0,0,0,0);
+    }}
+    </style>
+    """
+    st.markdown(page_bg_img, unsafe_allow_html=True)
     st.markdown("")
     st.markdown("")
     st.markdown("")
