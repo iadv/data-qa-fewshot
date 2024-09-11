@@ -29,8 +29,7 @@ conn = sqlite3.connect(db_path)
 # Increase the default width of the main area by 50%
 st.set_page_config(layout="wide")
 
-with st.sidebar:
-    page_bg_img = f"""
+page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
     background-image: url("https://i.postimg.cc/4xgNnkfX/Untitled-design.png");
@@ -44,6 +43,7 @@ with st.sidebar:
     }}
     </style>
     """
+with st.sidebar:
     st.markdown(page_bg_img, unsafe_allow_html=True)
     st.markdown("")
     st.markdown("")
