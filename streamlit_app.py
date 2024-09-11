@@ -63,16 +63,7 @@ with st.sidebar:
         unsafe_allow_html=True,
         
     )
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #ddeff0; /* Light gray background */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+    st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
 
