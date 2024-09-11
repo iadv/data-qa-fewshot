@@ -80,7 +80,7 @@ with st.sidebar:
 
 st.title('🤖 Data to Insights')
 st.markdown("#### Unlock Actionable Insights from Your Process Data")
-st.markdown("adadadad")
+st.markdown("")
 st.markdown(
          """
         <style>
@@ -129,7 +129,17 @@ conn.close()
 
 st.markdown("")
 st.markdown("")
-st.markdown("")
+st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: #fbe5e5; /* Light gray background */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    
+)
 
 
 # Step 1: Define example queries
