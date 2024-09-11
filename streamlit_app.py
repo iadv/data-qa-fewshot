@@ -56,7 +56,7 @@ with st.sidebar:
         """
         <style>
         .stApp {
-            background-color: #356169; /* Light gray background */
+            background-color: #ddeff0; /* Light gray background */
         }
         </style>
         """,
@@ -81,7 +81,17 @@ with st.sidebar:
 st.title('🤖 Data to Insights')
 st.markdown("#### Unlock Actionable Insights from Your Process Data")
 st.markdown("")
-st.markdown("")
+st.markdown(
+         """
+        <style>
+        .stApp {
+            background-color: #f2f9f9; /* Light gray background */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    
+)
 
 col1, col2 = st.columns(2)
 
