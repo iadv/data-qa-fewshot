@@ -30,9 +30,39 @@ conn = sqlite3.connect(db_path)
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
+    st.markdown(
+            """
+            <style>
+            .stApp {
+                background-color: #1a2c32; /* Light gray background */
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,    
+    
+    )
+    st.markdown(
+            """
+            <style>
+            .stApp {
+                background-color: #325158; /* Light gray background */
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,  
+        
+    )
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: #356169; /* Light gray background */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+        
+    )
     st.markdown(
         """
         <style>
