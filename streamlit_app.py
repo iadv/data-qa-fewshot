@@ -56,8 +56,6 @@ with st.sidebar:
     st.markdown("")
     st.markdown("")
     uploaded_files = st.file_uploader("Upload Files (e.g. production data, maintenance log, machine data, quality log, customer data, etc.) (.csv)", type=("csv"), accept_multiple_files=True)
-    #uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
-    #uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
     st.markdown("")
     st.markdown("")
     st.write('''
@@ -67,25 +65,14 @@ with st.sidebar:
 
     ''')
     st.markdown("")
-    st.subheader("_Example_ _use_ _case_", divider="blue")
+    st.subheader("_Example_ _Use_ _Case_", divider="blue")
     st.write('''
         Upload wastage and maintenance data files to do root cause analysis of your production waste
     ''')
     st.markdown("")
     st.markdown("")
 
-
-#st.title('Start asking questions about your business data')
 st.header("Start asking questions about your business data", divider="gray")
-# st.markdown("#### Unlock Actionable Insights from Your Process Data")
-
-# col1, col2 = st.columns(2)
-
-# with col1:
-    # uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
-
-# with col2:
-   #  uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
 
 # Connect to the SQLite database
 conn = sqlite3.connect('Data.db')
@@ -95,24 +82,6 @@ if uploaded_files:
         df = pd.read_csv(uploaded_file)
         df.to_sql(f'File {i+1}', conn, index=False, if_exists='replace')
         st.success(f"File {i+1} successfully uploaded and data ready for analysis.")
-
-#if uploaded_file_1:
-    # Read the uploaded file
-    #dfe = pd.read_csv(uploaded_file_1)
-    
-    # Save dataframe to SQL table
-    #dfe.to_sql('File 1', conn, index=False, if_exists='replace')
-    
-    #st.success("File 1 successfully uploaded and data ready for analysis.")
-
-#if uploaded_file_2:
-    # Read the uploaded file
-    #dfr = pd.read_csv(uploaded_file_2)
-    
-    # Save dataframe to SQL table
-    #dfr.to_sql('File 2', conn, index=False, if_exists='replace')
-    
-    #st.success("File 2 successfully uploaded and data ready for analysis.")
 
 # Commit and close the connection
 conn.commit()
@@ -251,36 +220,6 @@ full_prompt = ChatPromptTemplate.from_messages([
     MessagesPlaceholder("agent_scratchpad"),
 ])
 
-
-# OLD PROMPT
-    # When a user asks about a material or item, they are referring to a unique entity from the column 'Copy of Comp MatlGrp Desc' column in the 'Wastage_Data' table with only these values possible: ['Tea Blends', 'ZWIP Default', 'Thermal Transfer Lbl', 'Corrugated & Display', 'Web', 'Misc Pkg Materials', 'ASSO BRAND DELTA MFG', '0', 'Cartons', 'Tea Tags', 'PS Labels', 'Poly Laminations', 'ZFIN DEFAULT', 'Plastic Bags']  
-    # When asked about 'downtime', 'reasons' or 'maintenance' query the 'Maintenance_Data' table.
-    # 'Reasons' for downtime and maintenance are provided as Level 2 Reasons in the Maintenance_Data table in the column 'Level2Reason'.
-    # When asked about Lines or, for example, "L1", the lines you can query are only: ['L01 - C24', 'L02 - C24', 'L03 - C24', 'L03A - C24E', 'L04 - C21', 'L05  - C21', 'L19 - T2 Prima', 'L21 - Twinkle', 'L22 - Twinkle Rental', 'L23 - Twinkle 2', 'L24 - Twinkle 3', 'L35 - Fuso Combo 1', 'L36 - Fuso Combo 2']
-
-
-
-# # Custom function to get the current date
-# def get_current_date():
-#     return datetime.now().strftime("%Y-%m-%d")
-
-# # Create a tool from the custom function
-# date_tool = Tool(
-#     name="get_current_date",
-#     func=get_current_date,
-#     description="Get the current date"
-# )
-
-# # Simple test function
-# def simple_test_tool():
-#     return "Test tool response for Ian"
-
-# # Create a tool from the simple test function
-# test_tool_Ian = Tool(
-#     name="simple_test_tool",
-#     func=simple_test_tool,
-#     description="Returns a test response"
-# )
 
 # Initialize the LLM and create the SQL agent
 llm = ChatOpenAI(model="gpt-4o", temperature=0.2)
