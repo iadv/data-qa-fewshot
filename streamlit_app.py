@@ -65,10 +65,11 @@ with st.sidebar:
     
     3. Ask Questions! 📊
 
+
     ''')
-    st.header("Start asking questions about your business data", divider="gray")
+    st.subheader("_Example use case", divider="gray")
     st.write('''
-        Example use case: upload wastage and maintenance data files to do root cause analysis of your production waste
+        Upload wastage and maintenance data files to do root cause analysis of your production waste
     ''')
     st.markdown("")
     st.markdown("")
