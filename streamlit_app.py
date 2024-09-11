@@ -69,10 +69,9 @@ with st.sidebar:
     st.markdown("")
 
 
-st.title('Start asking questions about your data')
+#st.title('Start asking questions about your data')
+st.header("Start asking questions about your data", divider="gray")
 # st.markdown("#### Unlock Actionable Insights from Your Process Data")
-st.markdown("")
-st.markdown("")
 
 # col1, col2 = st.columns(2)
 
