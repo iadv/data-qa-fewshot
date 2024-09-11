@@ -29,12 +29,20 @@ conn = sqlite3.connect(db_path)
 # Increase the default width of the main area by 50%
 st.set_page_config(layout="wide")
 
-
 with st.sidebar:
     st.markdown("")
     st.markdown("")
     st.markdown("")
-    st.markdown("")
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: #f0f0f0; /* Light gray background */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     st.subheader('**How to Use:**')
     st.write('''
 
