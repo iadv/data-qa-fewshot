@@ -30,7 +30,7 @@ conn = sqlite3.connect(db_path)
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    .stApp {
+    st.markdown.App {
                 background-color: #1a2c32; /* Light gray background */
             }
     st.markdown("")
