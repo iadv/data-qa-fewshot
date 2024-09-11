@@ -51,13 +51,14 @@ with st.sidebar:
     st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
-    1. 📄 Upload one or two relevant files in CSV format (e.g. maintenance data, machine log, quality log, customer data, etc.)
-    2. Example test case: upload wastage data on the left and maintenance data on the right.
+    1. 📄 Upload relevant files in CSV format (maximum 10 files)
+    2. Example test case: upload wastage and maintenance data files to do root cause analysis of your production waste
     ''')
     st.markdown("")
     st.markdown("")
-    uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
-    uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
+    uploaded_files = st.file_uploader("Upload Files (e.g. production data, maintenance log, machine data, quality log, customer data, etc.) (.csv)", type=("csv"), accept_multiple_files=True)
+    #uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
+    #uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
     st.markdown("")
     st.markdown("")
     st.write('''
@@ -84,23 +85,29 @@ st.header("Start asking questions about your data", divider="gray")
 # Connect to the SQLite database
 conn = sqlite3.connect('Data.db')
 
-if uploaded_file_1:
-    # Read the uploaded file
-    dfe = pd.read_csv(uploaded_file_1)
-    
-    # Save dataframe to SQL table
-    dfe.to_sql('File 1', conn, index=False, if_exists='replace')
-    
-    st.success("File 1 successfully uploaded and data ready for analysis.")
+if uploaded_files:
+    for i, uploaded_file in enumerate(uploaded_files):
+        df = pd.read_csv(uploaded_file)
+        df.to_sql(f'File {i+1}', conn, index=False, if_exists='replace')
+        st.success(f"File {i+1} successfully uploaded and data ready for analysis.")
 
-if uploaded_file_2:
+#if uploaded_file_1:
     # Read the uploaded file
-    dfr = pd.read_csv(uploaded_file_2)
+    #dfe = pd.read_csv(uploaded_file_1)
     
     # Save dataframe to SQL table
-    dfr.to_sql('File 2', conn, index=False, if_exists='replace')
+    #dfe.to_sql('File 1', conn, index=False, if_exists='replace')
     
-    st.success("File 2 successfully uploaded and data ready for analysis.")
+    #st.success("File 1 successfully uploaded and data ready for analysis.")
+
+#if uploaded_file_2:
+    # Read the uploaded file
+    #dfr = pd.read_csv(uploaded_file_2)
+    
+    # Save dataframe to SQL table
+    #dfr.to_sql('File 2', conn, index=False, if_exists='replace')
+    
+    #st.success("File 2 successfully uploaded and data ready for analysis.")
 
 # Commit and close the connection
 conn.commit()
