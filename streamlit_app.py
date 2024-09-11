@@ -69,8 +69,8 @@ with st.sidebar:
     st.markdown("")
 
 
-st.title('🤖 Data to Insights')
-st.markdown("#### Unlock Actionable Insights from Your Process Data")
+st.title('Start asking questions about your data')
+# st.markdown("#### Unlock Actionable Insights from Your Process Data")
 st.markdown("")
 st.markdown("")
 
