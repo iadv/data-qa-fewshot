@@ -49,7 +49,6 @@ page_bg_img = f"""
 with st.sidebar:
     st.markdown(page_bg_img, unsafe_allow_html=True)
     st.markdown("")
-    st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
     1. 📄 Upload one or two relevant files in CSV format (e.g. maintenance data, machine log, quality log, customer data, etc.)
