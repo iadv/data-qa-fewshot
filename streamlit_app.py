@@ -48,10 +48,10 @@ page_bg_img = f"""
     """
 with st.sidebar:
     st.markdown(page_bg_img, unsafe_allow_html=True)
-    st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
     1. 📄 Upload relevant files in CSV format (maximum 10 files)
+    
     2. Example test case: upload wastage and maintenance data files to do root cause analysis of your production waste
     ''')
     st.markdown("")
@@ -63,6 +63,7 @@ with st.sidebar:
     st.markdown("")
     st.write('''
     3. Wait for the files to upload.
+    
     4. Ask Questions! 📊
 
     ''')
