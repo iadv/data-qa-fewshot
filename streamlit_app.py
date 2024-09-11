@@ -32,7 +32,7 @@ st.set_page_config(layout="wide")
 page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
-    background-image: url("https://postimg.cc/rdB92tvT");
+    background-image: url("https://img.freepik.com/premium-photo/abstract-gradient-blurred-background_753751-598.jpg?w=360");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
