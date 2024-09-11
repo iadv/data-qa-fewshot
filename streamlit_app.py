@@ -34,7 +34,8 @@ st.set_page_config(layout="wide")
 page_bg_img = f"""
     <style>
     [data-testid="stSidebar"] > .main {{
-    background-image: url("https://img.freepik.com/premium-vector/sky-blue-gradient-web-brochure-template-background-illustration-simple-plain-background_784842-323.jpg");
+    # background-image: url("https://img.freepik.com/premium-vector/sky-blue-gradient-web-brochure-template-background-illustration-simple-plain-background_784842-323.jpg");
+    background-color: #edebfc;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
