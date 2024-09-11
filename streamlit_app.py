@@ -30,39 +30,12 @@ conn = sqlite3.connect(db_path)
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    st.markdown(
-            """
-            <style>
-            .stApp {
+    .stApp {
                 background-color: #1a2c32; /* Light gray background */
             }
-            </style>
-            """,
-            unsafe_allow_html=True,    
-    
-    )
-    st.markdown(
-            """
-            <style>
-            .stApp {
-                background-color: #325158; /* Light gray background */
-            }
-            </style>
-            """,
-            unsafe_allow_html=True,  
-        
-    )
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #ddeff0; /* Light gray background */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-        
-    )
+    st.markdown("")
+    st.markdown("")
+    st.markdown("")
     st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
@@ -81,17 +54,7 @@ with st.sidebar:
 st.title('🤖 Data to Insights')
 st.markdown("#### Unlock Actionable Insights from Your Process Data")
 st.markdown("")
-st.markdown(
-         """
-        <style>
-        .stApp {
-            background-color: #f2f9f9; /* Light gray background */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    
-)
+st.markdown("")
 
 col1, col2 = st.columns(2)
 
@@ -129,17 +92,7 @@ conn.close()
 
 st.markdown("")
 st.markdown("")
-st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: #fbe5e5; /* Light gray background */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    
-)
+st.markdown("")
 
 
 # Step 1: Define example queries
