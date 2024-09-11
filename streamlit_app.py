@@ -52,7 +52,7 @@ with st.sidebar:
     st.write('''
     1. 📄 Upload relevant files in CSV format (maximum 10 files)
     
-    2. Example test case: upload wastage and maintenance data files to do root cause analysis of your production waste
+    2. Example use case: upload wastage and maintenance data files to do root cause analysis of your production waste
     ''')
     st.markdown("")
     st.markdown("")
@@ -71,7 +71,7 @@ with st.sidebar:
     st.markdown("")
 
 
-#st.title('Start asking questions about your data')
+#st.title('Start asking questions about your business data')
 st.header("Start asking questions about your data", divider="gray")
 # st.markdown("#### Unlock Actionable Insights from Your Process Data")
 
