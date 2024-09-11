@@ -47,7 +47,7 @@ page_bg_img = f"""
     </style>
     """
 with st.sidebar:
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
     1. 📄 Upload relevant files in CSV format (maximum 10 files)
