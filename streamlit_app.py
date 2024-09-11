@@ -29,10 +29,12 @@ conn = sqlite3.connect(db_path)
 # Increase the default width of the main area by 50%
 st.set_page_config(layout="wide")
 
+stSidebarContent
+# stAppViewContainer
 page_bg_img = f"""
     <style>
-    [data-testid="stAppViewContainer"] > .main {{
-    background-image: url("https://img.freepik.com/premium-photo/simple-white-background-with-soft-light-center_1174990-194340.jpg?size=626&ext=jpg&ga=GA1.2.1260468702.1726086921&semt=ais_hybrid");
+    [data-testid="stSidebarContent"] > .main {{
+    background-image: url("https://img.freepik.com/premium-vector/sky-blue-gradient-web-brochure-template-background-illustration-simple-plain-background_784842-323.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -48,7 +50,7 @@ with st.sidebar:
     st.markdown("")
     st.markdown("")
     st.markdown("")
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
 
