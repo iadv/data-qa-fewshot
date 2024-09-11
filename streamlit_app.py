@@ -37,7 +37,7 @@ with st.sidebar:
         """
         <style>
         .stApp {
-            background-color: #f0f0f0; /* Light gray background */
+            background-color: #ddeff0; /* Light gray background */
         }
         </style>
         """,
