@@ -52,7 +52,6 @@ with st.sidebar:
     st.markdown("")
     st.subheader('**How to Use:**')
     st.write('''
-
     1. 📄 Upload one or two relevant files in CSV format (e.g. maintenance data, machine log, quality log, customer data, etc.)
     2. Example test case: upload wastage data on the left and maintenance data on the right.
     ''')
