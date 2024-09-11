@@ -32,7 +32,7 @@ st.set_page_config(layout="wide")
 page_bg_img = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
-    background-image: url("https://img.freepik.com/premium-photo/abstract-gradient-blurred-background_753751-598.jpg?w=360");
+    background-image: url("https://img.freepik.com/premium-photo/simple-white-background-with-soft-light-center_1174990-194340.jpg?size=626&ext=jpg&ga=GA1.2.1260468702.1726086921&semt=ais_hybrid");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@ with st.sidebar:
     st.markdown("")
     st.markdown("")
     st.markdown("")
-    st.markdown("")
+    st.markdown(page_bg_img, unsafe_allow_html=True)
     st.subheader('**How to Use:**')
     st.write('''
 
