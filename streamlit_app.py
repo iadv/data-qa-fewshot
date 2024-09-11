@@ -62,6 +62,13 @@ with st.sidebar:
 
     ''')
     st.markdown("")
+    col1, col2 = st.rows(2)
+
+    with col1:
+        uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
+
+    with col2:
+        uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
     st.markdown("")
     st.markdown("")
 
@@ -71,13 +78,13 @@ st.markdown("#### Unlock Actionable Insights from Your Process Data")
 st.markdown("")
 st.markdown("")
 
-col1, col2 = st.columns(2)
+# col1, col2 = st.columns(2)
 
-with col1:
-    uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
+# with col1:
+    # uploaded_file_1 = st.file_uploader("**Upload File 1 (e.g. wastage, customer, sales or financial data) (.csv)**", type=("csv"))
 
-with col2:
-    uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
+# with col2:
+   #  uploaded_file_2 = st.file_uploader("**Upload File 2 (e.g. maintenance, customer, sales or financial data) (.csv)**", type=("csv"))
 
 # Connect to the SQLite database
 conn = sqlite3.connect('Data.db')
