@@ -33,7 +33,7 @@ st.set_page_config(layout="wide")
 # stAppViewContainer
 page_bg_img = f"""
     <style>
-    [data-testid="stSidebarContent"] > .main {{
+    [data-testid="stAppViewContainer"] > .main {{
     # background-image: url("https://img.freepik.com/premium-vector/sky-blue-gradient-web-brochure-template-background-illustration-simple-plain-background_784842-323.jpg");
     background-color: #edebfc;
     background-size: cover;
