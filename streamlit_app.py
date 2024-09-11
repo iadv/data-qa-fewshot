@@ -24,6 +24,17 @@ if os.path.exists(db_path):
 # Connect to the SQLite database (this will create a new, empty database)
 conn = sqlite3.connect(db_path)
 
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #f0f0f0; /* Light gray background */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 # ------------------- Create Sidebar Chat ----------------------
 
 # Increase the default width of the main area by 50%
