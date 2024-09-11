@@ -48,7 +48,7 @@ page_bg_img = f"""
     """
 with st.sidebar:
     st.markdown("")
-    st.subheader('**How to Use:**')
+    st.subheader('**How to Use:**', divider="blue")
     st.write('''
     1. 📄 Upload relevant files in CSV format (maximum 10 files)
     
@@ -65,9 +65,9 @@ with st.sidebar:
     
     3. Ask Questions! 📊
 
-
     ''')
-    st.subheader("_Example use case", divider="gray")
+    st.markdown("")
+    st.subheader("_Example_ _use_ _case_", divider="blue")
     st.write('''
         Upload wastage and maintenance data files to do root cause analysis of your production waste
     ''')
