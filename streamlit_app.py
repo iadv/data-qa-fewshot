@@ -80,8 +80,8 @@ with col1:
     st.markdown(
         """
         <button style="
-            background-color: #e0ddf7; /* Primary blue color */
-            color: black;
+            background-color: #007bff; /* Primary blue color */
+            color: white;
             padding: 10px 15px;
             border: none;
             border-radius: 6px;
@@ -89,7 +89,7 @@ with col1:
             transition: background-color 0.3s ease;
             cursor: pointer;
             width: 100%; /* Make button take full width of column */
-        ">You are using the _Text_ _to_ _Data_ _Analysis_ Co-Pilot</button>
+        ">You are using Text to Data Analysis AI</button>
         """,
         unsafe_allow_html=True,
     )
@@ -99,16 +99,16 @@ with col2:
         f"""
         <a href="https://processdatav2.vercel.app/" target="_blank">
             <button style="
-                background-color: #4d3181; /* Transparent background for outline */
+                background-color: transparent; /* Transparent background for outline */
                 color: #007bff; /* Primary blue color for text */
                 padding: 10px 15px;
-                border: none;
+                border: 2px solid #007bff; /* Blue border for outline */
                 border-radius: 6px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                transition: background-color 0.3s ease; /* Hover effects */
+                transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
                 width: 100%; /* Make button take full width of column */
-            ">Click here for other AI Co-Pilots</button>
+            ">Click here for other AI Experts / Co-Pilots</button>
         </a>
         """,
         unsafe_allow_html=True,
