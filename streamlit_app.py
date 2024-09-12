@@ -78,7 +78,7 @@ st.markdown(
         <div style="display: flex; align-items: center;">
             <h2 style="flex-grow: 1;">Start asking questions about your business data</h2>
             <a href="https://processdatav2.vercel.app/" target="_blank" style="margin-left: 10px;">
-                <button style="background-color: #4d3181; color: white; padding: 8px 12px; border: none; cursor: pointer;">Click here to access free AI Expert Co-Pilots</button>
+                <button style="background-color: #4d3181; color: white; padding: 8px 12px; border: none; border-radius:4px ; cursor: pointer;">Click here to access free AI Expert Co-Pilots</button>
             </a>
         </div>
         <hr style="margin-top: 10px;">
