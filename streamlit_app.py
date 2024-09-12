@@ -100,7 +100,7 @@ with col2:
         <a href="https://processdatav2.vercel.app/" target="_blank">
             <button style="
                 background-color: #4d3181; /* Transparent background for outline */
-                color: white; /* Primary blue color for text */
+                color: #007bff; /* Primary blue color for text */
                 padding: 10px 15px;
                 border: none;
                 border-radius: 6px;
