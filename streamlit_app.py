@@ -89,7 +89,7 @@ st.markdown(
             margin-right: 10px; /* Add some spacing between buttons */
         ">You are using Text to Data Analysis AI</button>
 
-        <a href="https://processdatav2.vercel.app/" target="_blank">
+        <a href="https://processdatav2.vercel.app/" target="_blank" style="margin-right: 10px;"> 
             <button style="
                 background-color: transparent; /* Transparent background for outline */
                 color: #007bff; /* Primary blue color for text */
