@@ -89,7 +89,6 @@ with col1:
             transition: background-color 0.3s ease;
             cursor: pointer;
             width: 100%; /* Make button take full width of column */
-            margin: 0 5px;
         ">You are using the _Text_ _to_ _Data_ _Analysis_ Co-Pilot</button>
         """,
         unsafe_allow_html=True,
@@ -109,7 +108,6 @@ with col2:
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
                 width: 100%; /* Make button take full width of column */
-                margin: 0 5px;
             ">Click here for other AI Co-Pilots</button>
         </a>
         """,
