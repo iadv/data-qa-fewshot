@@ -116,7 +116,29 @@ with col2:
         unsafe_allow_html=True,
     )
 
+# Add media query for smaller screens
+st.markdown(
+    """
+    <style>
+    @media (max-width: 768px) { /* Adjust breakpoint as needed */
+        .stApp .stButton button, .stApp .stMarkdown a button {
+            font-size: 14px; /* Reduce font size on smaller screens */
+            padding: 8px 12px; /* Reduce padding on smaller screens */
+        }
 
+        .stApp .stColumns {
+            flex-direction: column; /* Stack columns vertically on smaller screens */
+        }
+
+        .stApp .stColumn {
+            width: 100% !important; /* Make columns full width on smaller screens */
+            margin-bottom: 10px; /* Add spacing between columns on smaller screens */
+        }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 # Second Row - Header
 st.markdown(
     """
