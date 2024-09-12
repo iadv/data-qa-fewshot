@@ -118,6 +118,10 @@ examples = [
                     ORDER BY TotalWastage DESC
                     LIMIT 1;"""
     },
+    {
+        "input": "What is the percentage of unplanned maintenance on line 1?",
+        "query": """SELECT (SUM(CASE WHEN Reason = 'Unplanned Maintenance' THEN DowntimeInMinutes ELSE 0 END) * 100.0 / SUM(DowntimeInMinutes)) AS UnplannedMaintenancePercentage \nFROM "File 2" \nWHERE Line = 'L01 - C24';"""
+    },
     # General Inquiries about File Contents
     {
         "input": "What's in these files?",
@@ -200,6 +204,7 @@ few_shot_prompt = FewShotPromptTemplate(
     **For Wastage and Maintenance Data:**
     When a user asks about a material or item, they are referring to a unique entity from the 'Copy of Comp MatlGrp Desc' column in the 'Wastage_Data' table with only these values possible: ['Tea Blends', 'ZWIP Default', 'Thermal Transfer Lbl', 'Corrugated & Display', 'Web', 'Misc Pkg Materials', 'ASSO BRAND DELTA MFG', '0', 'Cartons', 'Tea Tags', 'PS Labels', 'Poly Laminations', 'ZFIN DEFAULT', 'Plastic Bags'].  
     When asked about 'downtime', 'reasons', or 'maintenance', query the 'Maintenance_Data' table.
+    Whether downtime and stoppages are planned, unplanned or other types is given in the column 'Reason' and include only : ['Excluded Time', 'Unplanned Maintenance', 'Stoppage', 'Changeovers', 'Work Breaks', 'Sanitation', 'Other', 'Planned Maintenance'].
     'Reasons' for downtime and maintenance are provided as Level 2 Reasons in the Maintenance_Data table in the column 'Level2Reason'.
     When asked about Lines or, for example, "L1", the lines you can query are only: ['L01 - C24', 'L02 - C24', 'L03 - C24', 'L03A - C24E', 'L04 - C21', 'L05  - C21', 'L19 - T2 Prima', 'L21 - Twinkle', 'L22 - Twinkle Rental', 'L23 - Twinkle 2', 'L24 - Twinkle 3', 'L35 - Fuso Combo 1', 'L36 - Fuso Combo 2'].
 
