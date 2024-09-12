@@ -74,7 +74,7 @@ with st.sidebar:
 
 # st.header("Start asking questions about your business data", divider="gray")
 # First Row - Buttons (Using Columns)
-col1, col2 = st.columns([0.08, 0.45])  # Create two columns
+col1, col2 = st.columns(2)  # Create two columns
 
 with col1:
     st.markdown(
