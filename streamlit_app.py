@@ -81,10 +81,10 @@ with col1:
         """
         <button style="
             background-color: #e0ddf7; /* Primary blue color */
-            color: Black;
+            color: black;
             padding: 10px 15px;
             border: none;
-            border-radius: 6px;
+            # border-radius: 6px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             cursor: pointer;
@@ -101,10 +101,10 @@ with col2:
         <a href="https://processdatav2.vercel.app/" target="_blank">
             <button style="
                 background-color: #4d3181; /* Transparent background for outline */
-                color: White; /* Primary blue color for text */
+                color: white; /* Primary blue color for text */
                 padding: 10px 15px;
                 border: none;
-                border-radius: 6px;
+                # border-radius: 6px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
