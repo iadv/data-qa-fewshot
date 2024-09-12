@@ -74,17 +74,17 @@ with st.sidebar:
 
 # st.header("Start asking questions about your business data", divider="gray")
 # First Row - Buttons (Using Columns)
-col1, col2 = st.columns([0.1, 0.45])  # Create two columns
+col1, col2 = st.columns([0.08, 0.45])  # Create two columns
 
 with col1:
     st.markdown(
         """
         <button style="
-            background-color: #c9c1f1; /* Primary blue color */
+            background-color: #d7ecff; /* Primary blue color */
             color: white;
             padding: 10px 15px;
             border: none;
-            border-radius: 6px;
+            border-radius: none;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             cursor: pointer;
@@ -104,7 +104,7 @@ with col2:
                 color: #007bff; /* Primary blue color for text */
                 padding: 10px 15px;
                 border: none;
-                border-radius: 6px;
+                border-radius: none;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
