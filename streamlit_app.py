@@ -73,18 +73,47 @@ with st.sidebar:
     st.markdown("")
 
 # st.header("Start asking questions about your business data", divider="gray")
+# First Row - Buttons
 st.markdown(
-        """
-        <div style="display: flex; align-items: center;">
-            <h2 style="flex-grow: 1;">Start asking questions about your business data</h2>
-            <a href="https://processdatav2.vercel.app/" target="_blank" style="margin-left: 10px;">
-                <button style="background-color: #4d3181; color: white; padding: 8px 12px; border: none; border-radius:4px ; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease; cursor: pointer;">Click here for AI Experts / Co-Pilots</button>
-            </a>
-        </div>
-        <hr style="border-top: 1px solid gray; margin-top: 10px;">
-        """,
-        unsafe_allow_html=True,
-    )
+    """
+    <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+        <button style="
+            background-color: #007bff; /* Primary blue color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            margin-right: 10px; /* Add some spacing between buttons */
+        ">You are using Text to Data Analysis AI</button>
+
+        <a href="https://processdatav2.vercel.app/" target="_blank">
+            <button style="
+                background-color: transparent; /* Transparent background for outline */
+                color: #007bff; /* Primary blue color for text */
+                padding: 10px 15px;
+                border: 2px solid #007bff; /* Blue border for outline */
+                border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
+                cursor: pointer;
+            ">Click here for other AI Experts / Co-Pilots</button>
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Second Row - Header
+st.markdown(
+    """
+    <h2>Start asking questions about your business data</h2>
+    <hr style="border-top: 1px solid gray; margin-top: 10px;">
+    """,
+    unsafe_allow_html=True,
+)
 
 # Connect to the SQLite database
 conn = sqlite3.connect('Data.db')
