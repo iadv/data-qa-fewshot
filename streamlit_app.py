@@ -84,7 +84,7 @@ with col1:
             color: white;
             padding: 10px 15px;
             border: none;
-            border-radius: none;
+            border-radius: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             cursor: pointer;
@@ -104,7 +104,7 @@ with col2:
                 color: #007bff; /* Primary blue color for text */
                 padding: 10px 15px;
                 border: none;
-                border-radius: none;
+                border-radius: 20px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
