@@ -83,14 +83,14 @@ with col1:
             background-color: #d7ecff; /* Primary blue color */
             color: white;
             padding: 10px 15px;
-            border: none;
+            border: 2px solid white;
             border-radius: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             cursor: pointer;
             width: 100%; /* Make button take full width of column */
             margin: 0 5px;
-        ">_Text2DataAnalysis_ Co-Pilot</button>
+        "><b>_Text2DataAnalysis_</b> Co-Pilot</button>
         """,
         unsafe_allow_html=True,
     )
@@ -103,14 +103,14 @@ with col2:
                 background-color: #f6f5fd; /* Transparent background for outline */
                 color: #007bff; /* Primary blue color for text */
                 padding: 10px 15px;
-                border: none;
+                border: 2px solid white;
                 border-radius: 20px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
                 width: 100%; /* Make button take full width of column */
                 margin: 0 5px;
-            ">Click here for other AI Co-Pilots</button>
+            "> <b>Click here</b> for other AI Co-Pilots</button>
         </a>
         """,
         unsafe_allow_html=True,
