@@ -74,7 +74,7 @@ with st.sidebar:
 
 # st.header("Start asking questions about your business data", divider="gray")
 # First Row - Buttons (Using Columns)
-col1, col2 = st.columns(2)  # Create two columns
+col1, col2 = st.columns([0.1, 0.45])  # Create two columns
 
 with col1:
     st.markdown(
@@ -100,7 +100,7 @@ with col2:
         f"""
         <a href="https://processdatav2.vercel.app/" target="_blank">
             <button style="
-                background-color: transparent; /* Transparent background for outline */
+                background-color: #f6f5fd; /* Transparent background for outline */
                 color: #007bff; /* Primary blue color for text */
                 padding: 10px 15px;
                 border: none;
