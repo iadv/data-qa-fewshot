@@ -83,7 +83,7 @@ with col1:
             background-color: #d7ecff; /* Primary blue color */
             color: black;
             padding: 10px 15px;
-            border: 2px solid white;
+            border: 2px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
@@ -103,7 +103,7 @@ with col2:
                 background-color: #f6f5fd; /* Transparent background for outline */
                 color: black; /* Primary blue color for text */
                 padding: 10px 15px;
-                border: 2px solid white;
+                border: 2px;
                 border-radius: 10px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
@@ -116,29 +116,6 @@ with col2:
         unsafe_allow_html=True,
     )
 
-# Add media query for smaller screens
-st.markdown(
-    """
-    <style>
-    @media (max-width: 768px) { /* Adjust breakpoint as needed */
-        .stApp .stButton button, .stApp .stMarkdown a button {
-            font-size: 14px; /* Reduce font size on smaller screens */
-            padding: 8px 12px; /* Reduce padding on smaller screens */
-        }
-
-        .stApp .stColumns {
-            flex-direction: column; /* Stack columns vertically on smaller screens */
-        }
-
-        .stApp .stColumn {
-            width: 100% !important; /* Make columns full width on smaller screens */
-            margin-bottom: 10px; /* Add spacing between columns on smaller screens */
-        }
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 # Second Row - Header
 st.markdown(
     """
