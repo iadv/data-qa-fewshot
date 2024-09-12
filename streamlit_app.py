@@ -80,7 +80,7 @@ with col1:
     st.markdown(
         """
         <button style="
-            background-color: #007bff; /* Primary blue color */
+            background-color: #c9c1f1; /* Primary blue color */
             color: white;
             padding: 10px 15px;
             border: none;
@@ -89,7 +89,8 @@ with col1:
             transition: background-color 0.3s ease;
             cursor: pointer;
             width: 100%; /* Make button take full width of column */
-        ">You are using Text to Data Analysis AI</button>
+            margin: 0 5px;
+        ">_Text2DataAnalysis_ Co-Pilot</button>
         """,
         unsafe_allow_html=True,
     )
@@ -102,13 +103,14 @@ with col2:
                 background-color: transparent; /* Transparent background for outline */
                 color: #007bff; /* Primary blue color for text */
                 padding: 10px 15px;
-                border: 2px solid #007bff; /* Blue border for outline */
+                border: none;
                 border-radius: 6px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
                 width: 100%; /* Make button take full width of column */
-            ">Click here for other AI Experts / Co-Pilots</button>
+                margin: 0 5px;
+            ">Click here for other AI Co-Pilots</button>
         </a>
         """,
         unsafe_allow_html=True,
