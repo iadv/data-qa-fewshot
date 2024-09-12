@@ -72,7 +72,19 @@ with st.sidebar:
     st.markdown("")
     st.markdown("")
 
-st.header("Start asking questions about your business data", divider="gray")
+# st.header("Start asking questions about your business data", divider="gray")
+    st.markdown(
+        """
+        <div style="display: flex; align-items: center;">
+            <h2 style="flex-grow: 1;">Start asking questions about your business data</h2>
+            <a href="https://streamlit.io/gallery" target="_blank" style="margin-left: 10px;">
+                <button style="background-color: #007bff; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer;">Go to gallery</button>
+            </a>
+        </div>
+        <hr style="border-top: 1px solid gray; margin-top: 10px;">
+        """,
+        unsafe_allow_html=True,
+    )
 
 # Connect to the SQLite database
 conn = sqlite3.connect('Data.db')
