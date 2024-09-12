@@ -105,7 +105,7 @@ with col2:
                 border: none;
                 border-radius: 6px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
+                transition: background-color 0.3s ease; /* Hover effects */
                 cursor: pointer;
                 width: 100%; /* Make button take full width of column */
             ">Click here for other AI Co-Pilots</button>
