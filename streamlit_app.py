@@ -102,7 +102,7 @@ with col2:
             <button style="
                 background-color: #f6f5fd; /* Transparent background for outline */
                 color: #007bff; /* Primary blue color for text */
-                padding: 10px 15px;
+                # padding: 10px 15px;
                 border: 2px solid white;
                 border-radius: 10px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
