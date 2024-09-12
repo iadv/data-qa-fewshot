@@ -73,10 +73,12 @@ with st.sidebar:
     st.markdown("")
 
 # st.header("Start asking questions about your business data", divider="gray")
-# First Row - Buttons
-st.markdown(
-    """
-    <div style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+# First Row - Buttons (Using Columns)
+col1, col2 = st.columns(2)  # Create two columns
+
+with col1:
+    st.markdown(
+        """
         <button style="
             background-color: #007bff; /* Primary blue color */
             color: white;
@@ -86,10 +88,16 @@ st.markdown(
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             cursor: pointer;
-            margin-right: 10px; /* Add some spacing between buttons */
+            width: 100%; /* Make button take full width of column */
         ">You are using Text to Data Analysis AI</button>
+        """,
+        unsafe_allow_html=True,
+    )
 
-        <a href="https://processdatav2.vercel.app/" target="_blank" style="margin-right: 10px;"> 
+with col2:
+    st.markdown(
+        f"""
+        <a href="https://processdatav2.vercel.app/" target="_blank">
             <button style="
                 background-color: transparent; /* Transparent background for outline */
                 color: #007bff; /* Primary blue color for text */
@@ -99,12 +107,13 @@ st.markdown(
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
+                width: 100%; /* Make button take full width of column */
             ">Click here for other AI Experts / Co-Pilots</button>
         </a>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+        """,
+        unsafe_allow_html=True,
+    )
+
 
 # Second Row - Header
 st.markdown(
