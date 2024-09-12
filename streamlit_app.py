@@ -82,10 +82,10 @@ with col1:
         <button style="
             background-color: #d7ecff; /* Primary blue color */
             color: white;
-            padding: 10px 15px;
+            # padding: 10px 15px;
             border: 2px solid #007bff;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            # box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
             cursor: pointer;
             width: 100%; /* Make button take full width of column */
@@ -105,7 +105,7 @@ with col2:
                 # padding: 10px 15px;
                 border: 2px solid white;
                 border-radius: 10px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                # box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 transition: background-color 0.3s ease, color 0.3s ease; /* Hover effects */
                 cursor: pointer;
                 width: 100%; /* Make button take full width of column */
