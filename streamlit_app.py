@@ -258,7 +258,8 @@ few_shot_prompt = FewShotPromptTemplate(
     Whether downtime and stoppages are planned, unplanned or other types is given in the column 'Reason' and include only : ['Excluded Time', 'Unplanned Maintenance', 'Stoppage', 'Changeovers', 'Work Breaks', 'Sanitation', 'Other', 'Planned Maintenance'].
     'Reasons' for downtime and maintenance are provided as Level 2 Reasons in the Maintenance_Data table in the column 'Level2Reason'.
     When asked about Lines or, for example, "L1", the lines you can query are only: ['L01 - C24', 'L02 - C24', 'L03 - C24', 'L03A - C24E', 'L04 - C21', 'L05  - C21', 'L19 - T2 Prima', 'L21 - Twinkle', 'L22 - Twinkle Rental', 'L23 - Twinkle 2', 'L24 - Twinkle 3', 'L35 - Fuso Combo 1', 'L36 - Fuso Combo 2'].
-
+    When asked about a SKU, they are provided in the column 'Material Description'
+    
     **For General Data Analysis:**
     - Customer Data: Look for columns such as 'CustomerID', 'Name', 'PurchaseHistory', 'ContactInfo', etc., and aggregate or filter based on common customer queries like total purchases or frequent purchases.
     - Sales Data: Identify columns such as 'SalesAmount', 'Date', 'Product', 'Region', etc., and perform operations to find trends, top products, or sales over time.
