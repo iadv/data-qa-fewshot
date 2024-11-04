@@ -12,8 +12,8 @@ from langchain.tools import Tool
 from datetime import datetime
 
 # Set up environment variables
-os.environ["OPENAI_API_KEY"] = st.secrets2["OPENAI_API_KEY"]
-os.environ["LANGCHAIN_API_KEY"] = st.secrets2["LANGCHAIN_API_KEY"]
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 # Ensure the database is empty at the start of the session
