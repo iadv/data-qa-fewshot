@@ -55,7 +55,7 @@ with st.sidebar:
     ''')
     st.markdown("")
     st.markdown("")
-    uploaded_files = st.file_uploader("Upload Files (e.g. production data, maintenance log, machine data, quality log, customer data, etc.). (.csv)", type=("csv"), accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Upload Files (e.g. production data, maintenance log, quality log, customer data, etc.). (.csv)", type=("csv"), accept_multiple_files=True)
     st.markdown("")
     st.markdown("")
     st.write('''
