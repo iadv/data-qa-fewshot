@@ -34,7 +34,7 @@ with st.sidebar:
     st.subheader('**How to Use:**')
     st.write('''
 
-    1. 📄 Upload the relevant files in CSV format (e.g., maintenance data, customer data, sales data, etc.)
+    1. 📄 Upload the relevant files in CSV format (e.g., maintenance data, customer data, sales data, etc.).
     2. Wait for the files to upload.
     3. Ask Questions! 📊
 
