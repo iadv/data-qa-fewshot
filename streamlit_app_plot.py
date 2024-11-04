@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Set up environment variables
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-os.environ["LANGCHAIN_API_KEY"] = st.secrets["LANGCHAIN_API_KEY"]
+os.environ["OPENAI_API_KEY"] = st.secrets2["OPENAI_API_KEY"]
+os.environ["LANGCHAIN_API_KEY"] = st.secrets2["LANGCHAIN_API_KEY"]
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 # Initialize the database
