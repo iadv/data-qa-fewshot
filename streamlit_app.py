@@ -50,12 +50,12 @@ with st.sidebar:
     st.markdown("")
     st.subheader('**_How_ _to_ _Use:_**', divider="blue")
     st.write('''
-    1. 📄 Upload relevant files in CSV format (maximum 10 files)
+    1. 📄 Upload relevant files in CSV format (maximum 10 files).
     
     ''')
     st.markdown("")
     st.markdown("")
-    uploaded_files = st.file_uploader("Upload Files (e.g. production data, maintenance log, machine data, quality log, customer data, etc.) (.csv)", type=("csv"), accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Upload Files (e.g. production data, maintenance log, machine data, quality log, customer data, etc.). (.csv)", type=("csv"), accept_multiple_files=True)
     st.markdown("")
     st.markdown("")
     st.write('''
