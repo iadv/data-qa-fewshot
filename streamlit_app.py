@@ -1,4 +1,4 @@
-import streamlit as st
+iimport streamlit as st
 import pandas as pd
 from langchain_community.utilities import SQLDatabase
 from langchain.callbacks import StreamlitCallbackHandler
@@ -269,7 +269,7 @@ few_shot_prompt = FewShotPromptTemplate(
     - Sales Data: Identify columns such as 'SalesAmount', 'Date', 'Product', 'Region', etc., and perform operations to find trends, top products, or sales over time.
     - Stock Market Data: Focus on columns like 'StockSymbol', 'Price', 'Volume', 'Date', etc., to analyze stock performance, average prices, or volume trends.
 
-    If the question does not seem related to the database, the current date or time, or a test_tool, just return "I don't know" as the answer. \nHere are some examples:""",
+    If the question does not seem related to the database, the current date or time, or a test_tool, just explain the issue in 1 sentence and ask them to try another question as the answer. \nHere are some examples:""",
     suffix="User input: {input}\nSQL query: {agent_scratchpad}\n",
     input_variables=["input", "agent_scratchpad"]
 )
