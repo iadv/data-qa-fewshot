@@ -1,4 +1,4 @@
-iimport streamlit as st
+import streamlit as st
 import pandas as pd
 from langchain_community.utilities import SQLDatabase
 from langchain.callbacks import StreamlitCallbackHandler
