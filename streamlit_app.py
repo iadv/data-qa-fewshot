@@ -171,7 +171,7 @@ examples = [
     },
     {
         "input": "What is the percentage of unplanned maintenance on line 1?",
-        "query": """SELECT (SUM(CASE WHEN Reason = 'Unplanned Maintenance' THEN DowntimeInMinutes ELSE 0 END) * 100.0 / SUM(DowntimeInMinutes)) AS UnplannedMaintenancePercentage \nFROM "File 2" \nWHERE Line = 'L01 - C24';"""
+        "query": """SELECT (SUM(CASE WHEN Reason = 'Unplanned Maintenance' THEN DowntimeInMinutes ELSE 0 END) * 100.0 / SUM(DowntimeInMinutes)) AS UnplannedMaintenancePercentage \nFROM "File 2" \nWHERE Line = 'L01';"""
     },
     {
         "input": "Which SKU has highest unplanned maintenance??",
@@ -261,7 +261,7 @@ few_shot_prompt = FewShotPromptTemplate(
     When asked about 'downtime', 'reasons', or 'maintenance', query the 'Maintenance_Data' table.
     Whether downtime and stoppages are planned, unplanned or other types is given in the column 'Reason' and include only : ['Excluded Time', 'Unplanned Maintenance', 'Stoppage', 'Changeovers', 'Work Breaks', 'Sanitation', 'Other', 'Planned Maintenance'].
     'Reasons' for downtime and maintenance are provided as Level 2 Reasons in the Maintenance_Data table in the column 'Level2Reason'.
-    When asked about Lines or, for example, "L1", the lines you can query are only: ['L01 - C24', 'L02 - C24', 'L03 - C24', 'L03A - C24E', 'L04 - C21', 'L05  - C21', 'L19 - T2 Prima', 'L21 - Twinkle', 'L22 - Twinkle Rental', 'L23 - Twinkle 2', 'L24 - Twinkle 3', 'L35 - Fuso Combo 1', 'L36 - Fuso Combo 2'].
+    When asked about Lines or, for example, "L1", the lines you can query are only: ['L01', 'L02', 'L03', 'L03', 'L04', 'L05', 'L06', 'L07', 'L08', 'L09', 'L10', 'L11', 'L12', 'L19', 'L21', 'L22', 'L23', 'L24', 'L35', 'L36'].
     When asked about a SKU, they are provided in the column 'Description'
     
     **For General Data Analysis:**
