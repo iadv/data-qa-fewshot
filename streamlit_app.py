@@ -158,7 +158,7 @@ examples = [
         "input": "What's the reasons for plastic bags wastage on L1?",
         "query": """SELECT Level2Reason, COUNT(*) AS ReasonCount 
                     FROM Maintenance_Data 
-                    WHERE Line = 'L01 - C24' 
+                    WHERE Line = 'L01' 
                     GROUP BY Level2Reason;"""
     },
     {
